@@ -5,7 +5,8 @@ import Motonera.*
 object camion {
 
 	var cosas = []
-	var property cargaMaxima = 50000
+	var property cargaMaxima = 2000
+	
 
 	method cargarCosas(unaCosa) {
 		if (self.puedoCargar(unaCosa)) {
@@ -38,12 +39,12 @@ object camion {
 		return cosas.max({ unaCosa => unaCosa.peligrosidad() })
 	}
 
-	method puedeCirculas() {
-		return cosas.forEach({ unaCosa => unaCosa.nivlPeligrosida() < ruta.limite() })
-	}
+	method puedeCircular() = cosas.sum({ unaCosa => unaCosa.peligrosidad()})  < ruta.limite() 
+		
+	
+
 
 }
-
 object ruta {
 
 	var property limite = 10

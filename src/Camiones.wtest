@@ -4,6 +4,19 @@ import Deposito.*
 import Motonera.*
 
 //Parte 1
+test "Cargar cosas sin sobrepasar peso"{
+	camion.cargarCosas(knightRider)
+	paqueteLadrillos.cantLadrillos(4)
+	camion.cargarCosas(paqueteLadrillos)
+	assert.that(camion.puedoCargar(bumblebee))
+	
+}
+test "Cargar cosas sobrepasando peso y da error"{
+	camion.cargarCosas(knightRider)
+	paqueteLadrillos.cantLadrillos(400)
+	camion.cargarCosas(paqueteLadrillos)
+	
+}
 test "Bumblebee como auto" {
 	bumblebee.forma(auto)
 	assert.equals(15,bumblebee.peligrosidad())
@@ -26,5 +39,56 @@ test "Tiene Cargado Algo?" {
 	assert.that(camion.tenesIncluido(paqueteLadrillos))
 	
 }
+
+test "Deposito carga el camion"{
+	paqueteLadrillos.cantLadrillos(4)
+	deposito.agregarCosas([paqueteLadrillos,knightRider,bumblebee])
+	deposito.llenarCamion()
+	assert.that(camion.tenesIncluido(paqueteLadrillos))
+	assert.that(camion.tenesIncluido(bumblebee))
+	assert.that(camion.tenesIncluido(knightRider))
+}
+
+//Parte 3
+test "Carga actual del camion" {
+	camion.cargarCosas(knightRider)
+	paqueteLadrillos.cantLadrillos(4)
+	camion.cargarCosas(paqueteLadrillos)
+	assert.equals(508,camion.pesoTotal())
+}
+
+test "Carga disponible del Camion" {
+	camion.cargarCosas(knightRider)
+	paqueteLadrillos.cantLadrillos(9)
+	camion.cargarCosas(paqueteLadrillos)
+	assert.equals(1482,camion.cargaDisponible())
+}
+
+test "Cosa mas peligrosa"{
+	camion.cargarCosas(knightRider)
+	paqueteLadrillos.cantLadrillos(9)
+	camion.cargarCosas(paqueteLadrillos)
+	assert.equals(knightRider,camion.cosaMasPeligrosa())
+	}
+	
+test "Puede circular" {
+	camion.cargarCosas(paqueteLadrillos)
+	assert.that(camion.puedeCircular())
+	}
+	
+//Punto 4
+
+
+test "Motonera" {
+	motonera.cargarCosas(bumblebee)
+	assert.notThat(motonera.puedoCargar(bumblebee))
+}
+
+
+
+
+
+
+
 
 //No tuve Tiempo de terminar los TEst

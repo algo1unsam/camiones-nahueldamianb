@@ -1,4 +1,6 @@
 import Camion.*
+import Cosas.*
+import Motonera.*
 
 object deposito {
 
