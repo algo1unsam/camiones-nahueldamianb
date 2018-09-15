@@ -81,7 +81,26 @@ test "Puede circular" {
 
 test "Motonera" {
 	motonera.cargarCosas(bumblebee)
-	assert.notThat(motonera.puedoCargar(bumblebee))
+	assert.notThat(motonera.puedoCargar(bumblebee)) //Tira error porque no se puede cargar bumblebee
+}
+
+//Punto 5
+test"Contenedor portuario "{
+	bumblebee.forma(auto)
+	contenedorPortuario.agregarCosas(bumblebee)
+	contenedorPortuario.agregarCosas(knightRider)
+	paqueteLadrillos.cantLadrillos(10)
+	contenedorPortuario.agregarCosas(paqueteLadrillos)
+	assert.equals(1420, contenedorPortuario.peso())
+	assert.equals(bumblebee, contenedorPortuario.esPeligroso())
+}
+
+test"Embajale de Seguridad"{
+	assert.equals(500, embalajeSeguridad.peso(knightRider))
+	assert.equals(5, embalajeSeguridad.esPeligroso(knightRider))
+	bumblebee.forma(robot)
+	assert.equals(800, embalajeSeguridad.peso(bumblebee))
+	assert.equals(15, embalajeSeguridad.esPeligroso(bumblebee))
 }
 
 
@@ -91,4 +110,3 @@ test "Motonera" {
 
 
 
-//No tuve Tiempo de terminar los TEst

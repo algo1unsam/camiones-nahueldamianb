@@ -15,3 +15,4 @@ object motonera {
 	unaCosa.peso() <= 100 and unaCosa.peligrosidad() <= 5
 }
 
+
