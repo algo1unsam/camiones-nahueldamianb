@@ -1,0 +1,30 @@
+import Camion.*
+import Cosas.*
+import Deposito.*
+import Motonera.*
+
+//Parte 1
+test "Bumblebee como auto" {
+	bumblebee.forma(auto)
+	assert.equals(15,bumblebee.peligrosidad())
+}
+
+test "Bumblebee como robot" {
+	bumblebee.forma(robot)
+	assert.equals(30,bumblebee.peligrosidad())
+}
+
+test "Paquete de Ladrillos" {
+	paqueteLadrillos.cantLadrillos(4)
+	assert.equals(8,paqueteLadrillos.peso())
+}
+
+//Parte 2
+
+test "Tiene Cargado Algo?" {
+	camion.cargarCosas(paqueteLadrillos)
+	assert.that(camion.tenesIncluido(paqueteLadrillos))
+	
+}
+
+//No tuve Tiempo de terminar los TEst
