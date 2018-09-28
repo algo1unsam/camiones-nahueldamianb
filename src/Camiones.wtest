@@ -12,6 +12,7 @@ test "Cargar cosas sin sobrepasar peso"{
 	
 }
 test "Cargar cosas sobrepasando peso y da error"{
+	// TODO no dijimos como testear errores todavía, próximamente...
 	camion.cargarCosas(knightRider)
 	paqueteLadrillos.cantLadrillos(400)
 	camion.cargarCosas(paqueteLadrillos)

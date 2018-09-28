@@ -34,6 +34,7 @@ object paqueteLadrillos {
 	var property cantLadrillos = 0
 
 	method peso() {
+		// TODO el peso es la cantidad de ladrillos por el peso de cada ladrillo
 		return cantLadrillos * 2
 	}
 
@@ -63,6 +64,9 @@ object contenedorPortuario {
 
 object embalajeSeguridad {
 
+	// TODO la cosa debería ser una atributo
+	// sino yo podría mandar estos dos mensajes con cosas diferentes y no sería consistente 
+	
 	method peso(unaCosa) {
 		return unaCosa.peso()
 	}
